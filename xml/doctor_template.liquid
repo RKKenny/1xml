@@ -1,0 +1,9 @@
+﻿<!-- R [1..1] ФИО медицинского работника -->
+<name>
+  <!-- R [1..1] Фамилия -->
+  <family>{{ doctor.Family }}</family>
+  <!-- R [1..1] Имя -->
+  <given>{{ doctor.Given }}</given>
+  <!-- [0..1] Отчество -->
+  {% if doctor.Patronymic %} <identity:Patronymic>{{ doctor.Patronymic }}</identity:Patronymic>{% endif %}
+</name>
