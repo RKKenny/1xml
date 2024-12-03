@@ -6,6 +6,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        /* В Main методе мы создаем экземпляр Doctor,
+         * загружаем шаблон и используем его для генерации XML,
+         * который затем выводим на консоль.*/
+
+        /*Регистрируем класс доктор, чтобы он мог использоваться в шаблоне.
+         * Мы указываем, какие свойства доступны для использования в шаблоне. */
+
         Template.RegisterSafeType(typeof(Doctor), new[] { "Family", "Given", "Patronymic" });
 
 
@@ -27,11 +34,10 @@ class Program
                 Doctor doctor = new Doctor(doctorFullName);
 
                 // Загрузка шаблона
+                /*Я бы использовал префикс identity для всех полей и
+                 * иначе бы их назвал, но делал чтобы получилось по шаблону*/
                 string templatePath = Path.Combine(Directory.GetCurrentDirectory(), "doctor_template.liquid");
                 string templateContent = File.ReadAllText(templatePath);
-
-                // Регистрация класса Doctor в DotLiquid
-                Template.RegisterSafeType(typeof(Doctor), new[] { "Family", "Given", "Patronymic" });
 
                 // Генерация XML
                 var template = Template.Parse(templateContent);

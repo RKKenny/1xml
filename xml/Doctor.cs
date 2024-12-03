@@ -3,6 +3,9 @@
     public string Family { get; set; }
     public string Given { get; set; }
     public string Patronymic { get; set; }
+    /* Конструктор принимает полное имя,
+     * разбивает его на части и заполняет свойства Family, Given и Patronymic.
+     * Если отчество отсутствует, оно будет равно null.*/
 
     public Doctor(string fullName)
     {

@@ -5,5 +5,7 @@
   <!-- R [1..1] Имя -->
   <given>{{ doctor.Given }}</given>
   <!-- [0..1] Отчество -->
-  {% if doctor.Patronymic %} <identity:Patronymic>{{ doctor.Patronymic }}</identity:Patronymic>{% endif %}
+  {% if doctor.Patronymic %}
+  <identity:Patronymic>{{ doctor.Patronymic }}</identity:Patronymic>
+  {% endif %}
 </name>
